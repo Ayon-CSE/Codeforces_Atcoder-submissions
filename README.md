@@ -46,8 +46,8 @@ That's it! Your submissions will be automatically harvested daily via GitHub Act
 
 | Platform | Profile | Solutions | Submissions |
 |----------|---------|-----------|-------------|
-| **Codeforces** | [Ayon](https://codeforces.com/profile/Ayon) | [![Codeforces](https://badges.joonhyung.xyz/codeforces/Ayon.svg)](https://codeforces.com/profile/Ayon) | [📝 View All](codeforces.md) |
-| **AtCoder** | [AyonCoder](https://atcoder.jp/users/AyonCoder) | [![AtCoder](https://badges.joonhyung.xyz/atcoder/AyonCoder.svg)](https://atcoder.jp/users/AyonCoder) | [📝 View All](atcoder.md) |
+| **Codeforces** | [Ayon](https://codeforces.com/profile/Ayon) | [![Codeforces](https://badges.joonhyung.xyz/codeforces/Ayon.svg)](https://codeforces.com/profile/Ayon) | [📝 View All (2177 AC)](submissions/codeforces_accepted.md) |
+| **AtCoder** | [AyonCoder](https://atcoder.jp/users/AyonCoder) | [![AtCoder](https://badges.joonhyung.xyz/atcoder/AyonCoder.svg)](https://atcoder.jp/users/AyonCoder) | [📝 View All](submissions/atcoder_accepted.md) |
 
 </div>
 
@@ -60,19 +60,23 @@ That's it! Your submissions will be automatically harvested daily via GitHub Act
 
 ```
 📦 Codeforces_Atcoder-submissions/
-├── 📄 codeforces.md              # Codeforces submissions table
-├── 📄 atcoder.md                 # AtCoder submissions table
-├── 📂 submissions/
-│   ├── 📂 codeforces/
-│   │   └── 📂 [contest_id]/
-│   │       └── 📄 [problem_code].[ext]
-│   ├── 📂 atcoder/
-│   │   └── 📂 [contest_id]/
-│   │       └── 📄 [problem_code].[ext]
-│   └── 📄 submissions.json       # Metadata database
+├── 📄 README.md                  # This file
+├── 📄 fetch_submissions.py       # Fetch script
+├── 📂 .github/
+│   └── 📂 workflows/
+│       └── 📄 harwest.yml        # GitHub Actions automation
 ├── 📂 config/
-│   └── 📄 users.json             # Username configuration
-└── 📄 fresh_start.py             # Setup script
+│   ├── 📄 users.json            # Username configuration
+│   └── 📄 README.md             # Config documentation
+└── 📂 submissions/
+    ├── 📄 codeforces_accepted.md # All accepted Codeforces solutions
+    ├── 📄 atcoder_accepted.md    # All accepted AtCoder solutions
+    ├── 📂 codeforces/
+    │   ├── 📄 codeforces_submissions.json
+    │   └── 📄 codeforces_accepted_submissions.json
+    └── 📂 atcoder/
+        ├── 📄 atcoder_submissions.json
+        └── 📄 atcoder_accepted_submissions.json
 ```
 
 </details>
