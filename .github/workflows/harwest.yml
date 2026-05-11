@@ -1,4 +1,4 @@
-name: Harwest Submissions
+name: Fetch Accepted Solutions
 
 on:
   push:
@@ -9,15 +9,9 @@ on:
     - cron: '0 17 * * *'
   
   workflow_dispatch:
-    inputs:
-      full_scan:
-        description: 'Run full scan of all submissions'
-        required: false
-        default: false
-        type: boolean
 
 jobs:
-  harwest:
+  fetch_solutions:
     runs-on: ubuntu-latest
     
     steps:
@@ -30,43 +24,23 @@ jobs:
       with:
         python-version: '3.x'
     
-    - name: Install Harwest
-      run: pip install harwest-tool
-    
     - name: Configure Git
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
     
-    - name: Check if First Run
-      id: first_run
-      run: |
-        if [ ! -f "submissions/codeforces/codeforces.json" ] && [ ! -f "submissions/atcoder/atcoder.json" ]; then
-          echo "first_run=true" >> $GITHUB_OUTPUT
-        else
-          echo "first_run=false" >> $GITHUB_OUTPUT
-        fi
-    
-    - name: Run Harwest - Full Scan (First Run)
-      if: steps.first_run.outputs.first_run == 'true' || github.event.inputs.full_scan == 'true'
-      run: |
-        harwest cf --username Ayon --out-dir submissions/codeforces --fetch-source
-        harwest at --username AyonCoder --out-dir submissions/atcoder --fetch-source
-    
-    - name: Run Harwest - Incremental Scan
-      if: steps.first_run.outputs.first_run == 'false' && github.event.inputs.full_scan != 'true'
-      run: |
-        harwest cf --username Ayon --out-dir submissions/codeforces --fetch-source
-        harwest at --username AyonCoder --out-dir submissions/atcoder --fetch-source
+    - name: Fetch Accepted Solutions
+      run: python fetch_submissions.py
     
     - name: Commit and Push
       run: |
         if [ -n "$(git status --porcelain)" ]; then
           git add -A
-          git commit -m "Harwest: Update submissions on $(date +'%Y-%m-%d %H:%M:%S')"
+          git commit -m "Update accepted solutions on $(date +'%Y-%m-%d %H:%M:%S')"
           git push
         else
-          echo "No changes to commit"
+          echo "No new accepted solutions"
         fi
+
           echo "No new submissions found"
         fi
