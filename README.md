@@ -21,8 +21,8 @@
 
 ## 📊 Statistics
 
-| Platform       | Total Submissions | **Accepted (AC)**                              |
-| -------------- | ----------------- | ---------------------------------------------- |
+| Platform                                              | Total Submissions                     | **Accepted (AC)**                              |
+| ----------------------------------------------------- | ------------------------------------- | ---------------------------------------------- |
 | **[Codeforces](https://codeforces.com/profile/Ayon)** | **[4857](submissions/codeforces.md)** | **[2181](submissions/codeforces_accepted.md)** |
 
 ---
