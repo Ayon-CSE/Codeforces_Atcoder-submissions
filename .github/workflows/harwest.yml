@@ -13,9 +13,11 @@ on:
 jobs:
   fetch_solutions:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -37,7 +39,9 @@ jobs:
           if [ -n "$(git status --porcelain)" ]; then
             git add -A
             git commit -m "Update Codeforces submissions on $(date +'%Y-%m-%d %H:%M:%S')"
-            git push
+            git push https://github.com/${{ github.repository }}.git
           else
             echo "No new submissions found"
           fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
