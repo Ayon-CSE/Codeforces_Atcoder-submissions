@@ -23,13 +23,17 @@
 
 | Platform       | Total Submissions | **Accepted (AC)**                              |
 | -------------- | ----------------- | ---------------------------------------------- |
-| **Codeforces** | 4857              | **[2181](submissions/codeforces_accepted.md)** |
+| **[Codeforces](https://codeforces.com/profile/Ayon)** | **[4857](submissions/codeforces.md)** | **[2181](submissions/codeforces_accepted.md)** |
 
 ---
 
-## 🎯 View Accepted Solutions
+## 🎯 View Submissions
 
-### Codeforces - 2181 Accepted Solutions
+### Codeforces
+
+- **[📋 View All Submissions (4857) →](submissions/codeforces.md)** - Complete list of all submissions
+- **[✅ View Accepted Solutions (2181) →](submissions/codeforces_accepted.md)** - Only accepted solutions with ratings and contest names
+- **[👤 View Codeforces Profile →](https://codeforces.com/profile/Ayon)** - Check profile on Codeforces
 
 Each solution includes:
 
@@ -37,8 +41,6 @@ Each solution includes:
 - ✅ Full contest name with division
 - ✅ Submission date
 - ✅ Direct link to solution on Codeforces
-
-**[👉 View All Codeforces Solutions →](submissions/codeforces_accepted.md)**
 
 ---
 
