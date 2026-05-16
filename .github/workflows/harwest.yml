@@ -39,7 +39,7 @@ jobs:
           if [ -n "$(git status --porcelain)" ]; then
             git add -A
             git commit -m "Update Codeforces submissions on $(date +'%Y-%m-%d %H:%M:%S')"
-            git push https://github.com/${{ github.repository }}.git
+            git push origin main
           else
             echo "No new submissions found"
           fi

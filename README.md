@@ -23,7 +23,7 @@
 
 | Platform                                              | Total Submissions                     | **Accepted (AC)**                              |
 | ----------------------------------------------------- | ------------------------------------- | ---------------------------------------------- |
-| **[Codeforces](https://codeforces.com/profile/Ayon)** | **[4857](submissions/codeforces.md)** | **[2181](submissions/codeforces_accepted.md)** |
+| **[Codeforces](https://codeforces.com/profile/Ayon)** | **[4868](submissions/codeforces.md)** | **[2190](submissions/codeforces_accepted.md)** |
 
 ---
 
@@ -31,8 +31,8 @@
 
 ### Codeforces
 
-- **[📋 View All Submissions (4857) →](submissions/codeforces.md)** - **Complete list of ALL submissions** including accepted, wrong answer, TLE, CE, and more
-- **[✅ View Accepted Solutions (2181) →](submissions/codeforces_accepted.md)** - **Only accepted solutions** (OK verdict) with ratings and contest names
+- **[📋 View All Submissions (4868) →](submissions/codeforces.md)** - **Complete list of ALL submissions** including accepted, wrong answer, TLE, CE, and more
+- **[✅ View Accepted Solutions (2190) →](submissions/codeforces_accepted.md)** - **Only accepted solutions** (OK verdict) with ratings and contest names
 - **[👤 View Codeforces Profile →](https://codeforces.com/profile/Ayon)** - Check profile on Codeforces
 
 Each submission includes:
@@ -138,10 +138,10 @@ Want to fetch accepted solutions immediately?
 | ---------- | -------------------------------------- |
 | Problem    | Problem name                           |
 | Rating     | Problem difficulty (800-3500+)         |
-| Contest    | Full contest name with division         |
+| Contest    | Full contest name with division        |
 | Verdict    | Submission result (OK, WA, TLE, CE...) |
 | Date       | Submission date                        |
-| Submission | Direct link to Codeforces submission    |
+| Submission | Direct link to Codeforces submission   |
 
 ### Codeforces - Accepted Solutions Only
 

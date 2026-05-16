@@ -2,6 +2,7 @@
 import json
 import urllib.request
 import os
+import re
 from datetime import datetime
 from pathlib import Path
 
@@ -180,6 +181,55 @@ def generate_all_submissions_markdown(submissions, output_dir, username, contest
     
     print(f"✓ Generated all submissions markdown: {output_path}")
 
+def update_readme_statistics(total_submissions, accepted_submissions):
+    """Update README.md with latest statistics - ALL OCCURRENCES"""
+    readme_path = Path("README.md")
+    
+    if not readme_path.exists():
+        print("⚠ README.md not found, skipping statistics update")
+        return
+    
+    try:
+        with open(readme_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        # Replace ALL occurrences of total submissions count with links
+        # Pattern 1: **[XXXX](submissions/codeforces.md)** - in stats table
+        content = re.sub(
+            r'\*\*\[\d+\]\(submissions/codeforces\.md\)\*\*',
+            f'**[{total_submissions}](submissions/codeforces.md)**',
+            content
+        )
+        
+        # Pattern 2: (XXXX) in bullet points like "View All Submissions (XXXX)"
+        content = re.sub(
+            r'View All Submissions \(\d+\)',
+            f'View All Submissions ({total_submissions})',
+            content
+        )
+        
+        # Replace ALL occurrences of accepted submissions count with links
+        # Pattern 3: **[XXXX](submissions/codeforces_accepted.md)** - in stats table
+        content = re.sub(
+            r'\*\*\[\d+\]\(submissions/codeforces_accepted\.md\)\*\*',
+            f'**[{accepted_submissions}](submissions/codeforces_accepted.md)**',
+            content
+        )
+        
+        # Pattern 4: (XXXX) in bullet points like "View Accepted Solutions (XXXX)"
+        content = re.sub(
+            r'View Accepted Solutions \(\d+\)',
+            f'View Accepted Solutions ({accepted_submissions})',
+            content
+        )
+        
+        with open(readme_path, 'w', encoding='utf-8') as f:
+            f.write(content)
+        
+        print(f"✓ Updated README.md statistics: {total_submissions} total, {accepted_submissions} accepted")
+    except Exception as e:
+        print(f"⚠ Error updating README: {e}")
+
 def main():
     print("Fetching Codeforces submissions...\n")
     
@@ -232,6 +282,9 @@ def main():
     print("\nGenerating markdown table...")
     generate_accepted_markdown(cf_accepted, base_dir, codeforces_username, contests)
     generate_all_submissions_markdown(cf_all, base_dir, codeforces_username, contests)
+    
+    print("\nUpdating README statistics...")
+    update_readme_statistics(len(cf_all), len(cf_accepted))
     
     print("\n✓ All submissions fetched and merged!")
     print(f"\n📊 Summary:")
